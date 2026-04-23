@@ -380,6 +380,38 @@ h3 {
   margin-top: 1.35rem;
 }
 
+.resource-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1.35rem;
+}
+
+.resource-links {
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-links-empty {
+  display: none;
+}
+
+.infographic-card {
+  margin: 0;
+  padding: 0.85rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 250, 243, 0.9);
+  border: 1px solid rgba(64, 31, 23, 0.08);
+}
+
+.infographic-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
 .faq-item {
   padding: 1.3rem;
 }
@@ -418,7 +450,8 @@ h3 {
   .panel-story,
   .steps-grid,
   .link-grid,
-  .faq-list {
+  .faq-list,
+  .resource-grid {
     grid-template-columns: 1fr;
   }
 

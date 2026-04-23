@@ -45,6 +45,9 @@ const content = {
     centersTitle: "Where to go",
     centersIntro:
       "We’ll try to detect your country and city, then suggest the most relevant local search links.",
+    resourceTitle: "Why it matters",
+    resourceIntro:
+      "A compact visual from the original campaign page: one donation helps several people, and countries with more donors save more lives.",
     faqTitle: "FAQ",
     faq: [
       ["Is it scary?", "Usually not. It is mostly a routine process and staff guide you through it."],
@@ -96,6 +99,9 @@ const content = {
     centersTitle: "Куди звернутися",
     centersIntro:
       "Для української версії показуємо перевірені центри з DonorUA для Києва та Одеси.",
+    resourceTitle: "Додатково",
+    resourceIntro:
+      "Повертаємо корисний FAQ для Одеси і саму інфографіку з оригінальної сторінки.",
     faqTitle: "FAQ",
     faq: [
       ["Це страшно?", "Зазвичай ні. Це стандартна процедура, і персонал усе пояснює."],
@@ -139,6 +145,15 @@ const uaCenters = [
     title: "Одеська обласна дитяча клінічна лікарня",
     text: "Відділення переливання крові в Одесі.",
     href: "https://www.donor.ua/centers/1447",
+  },
+];
+
+const uaResources = [
+  {
+    city: "Odesa",
+    title: "FAQ Odessa",
+    text: "Підготовка, пояснення і часті питання від Одеської станції переливання крові.",
+    href: "https://ospk.od.ua/faq/",
   },
 ];
 
@@ -454,6 +469,43 @@ function App() {
                   </a>
                 `,
               )}
+            </div>
+          </section>
+
+          <section className="panel resource-panel">
+            <p className="section-kicker">Resources</p>
+            <h2>${t.resourceTitle}</h2>
+            <p>${t.resourceIntro}</p>
+            <div className="resource-grid">
+              ${locale === "uk"
+                ? html`
+                    <div className="resource-links">
+                      ${uaResources.map(
+                        (resource) => html`
+                          <a
+                            key=${resource.title}
+                            className="center-link"
+                            href=${resource.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span className="center-meta">${resource.city}</span>
+                            <strong>${resource.title}</strong>
+                            <small>${resource.text}</small>
+                            <span className="center-arrow" aria-hidden="true">↗</span>
+                          </a>
+                        `,
+                      )}
+                    </div>
+                  `
+                : html`<div className="resource-links resource-links-empty"></div>`}
+
+              <figure className="infographic-card">
+                <img
+                  src="https://nogiftsjustblood.carrd.co/assets/images/image01.jpg?v=2c44f59f"
+                  alt="Blood donation infographic"
+                />
+              </figure>
             </div>
           </section>
 
