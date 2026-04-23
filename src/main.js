@@ -260,6 +260,7 @@ function App() {
 
   const [locale, setLocale] = React.useState(initialLanguage);
   const [isAutoLocale, setIsAutoLocale] = React.useState(true);
+  const [allowMotion, setAllowMotion] = React.useState(false);
   const [location, setLocation] = React.useState({
     country: null,
     countryName: null,
@@ -277,6 +278,17 @@ function App() {
   React.useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
+
+  React.useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveData = navigator.connection?.saveData === true;
+    const lowCpu =
+      typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+    const lowMemory =
+      typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+
+    setAllowMotion(!(reduceMotion || saveData || lowCpu || lowMemory));
+  }, []);
 
   React.useEffect(() => {
     let cancelled = false;
@@ -367,9 +379,10 @@ function App() {
 
   return (
     html`
-      <div className="page-shell">
+      <div className=${allowMotion ? "page-shell motion-safe" : "page-shell"}>
         <div className="ambient ambient-left" />
         <div className="ambient ambient-right" />
+        <div className="ambient ambient-center" />
 
         <header className="hero">
           <nav className="topbar">
