@@ -279,12 +279,8 @@ function App() {
   React.useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = navigator.connection?.saveData === true;
-    const lowCpu =
-      typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
-    const lowMemory =
-      typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
 
-    setAllowMotion(!(reduceMotion || saveData || lowCpu || lowMemory));
+    setAllowMotion(!(reduceMotion || saveData));
   }, []);
 
   React.useEffect(() => {
