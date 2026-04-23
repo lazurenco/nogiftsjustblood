@@ -8,13 +8,16 @@ const content = {
   en: {
     lang: "EN",
     altLang: "UK",
-    badge: "Birthday idea with actual impact",
-    title: "Skip the gift. Donate blood instead.",
+    badge: "A birthday request",
+    title: "Donate blood for my birthday.",
     subtitle:
-      "If you wanted to celebrate me, this is the best possible way: spend around 40 minutes and help save a life.",
+      "No gifts. Just something that actually saves lives.",
+    manifesto:
+      "It takes around 40 minutes. You will be fine. And it matters more than another present ever could.",
     primaryCta: "Find a donation center",
     secondaryCta: "Read the FAQ",
     pledge: "If you're nervous, I'll go with you.",
+    pledgeLabel: "You do not have to go alone",
     stats: [
       { value: "30–40 min", label: "door to done" },
       { value: "1 visit", label: "can help multiple people" },
@@ -62,13 +65,16 @@ const content = {
   uk: {
     lang: "UK",
     altLang: "EN",
-    badge: "Ідея на день народження з реальною користю",
-    title: "Без подарунків. Здай кров замість них.",
+    badge: "Моє прохання на день народження",
+    title: "Здай кров на мій день народження.",
     subtitle:
-      "Якщо хочеш мене привітати, ось найкращий варіант: витрать близько 40 хвилин і допоможи врятувати чиєсь життя.",
+      "Без подарунків. Просто зроби щось, що реально рятує життя.",
+    manifesto:
+      "Це займає приблизно 40 хвилин. З тобою все буде добре. А користі від цього набагато більше, ніж від ще однієї речі.",
     primaryCta: "Знайти центр донації",
     secondaryCta: "Переглянути FAQ",
     pledge: "Якщо хвилюєшся, я піду з тобою.",
+    pledgeLabel: "Я буду поруч",
     stats: [
       { value: "30–40 хв", label: "від входу до завершення" },
       { value: "1 візит", label: "може допомогти кільком людям" },
@@ -99,9 +105,9 @@ const content = {
     centersTitle: "Куди звернутися",
     centersIntro:
       "Для української версії показуємо перевірені центри з DonorUA для Києва та Одеси.",
-    resourceTitle: "Додатково",
+    resourceTitle: "Чому це важливо зараз",
     resourceIntro:
-      "Повертаємо корисний FAQ для Одеси і саму інфографіку з оригінальної сторінки.",
+      "Під час війни низьке донорство це не просто пасивність. Це соромна нестача людяності, коли кров критично потрібна постійно.",
     faqTitle: "FAQ",
     faq: [
       ["Це страшно?", "Зазвичай ні. Це стандартна процедура, і персонал усе пояснює."],
@@ -145,15 +151,6 @@ const uaCenters = [
     title: "Одеська обласна дитяча клінічна лікарня",
     text: "Відділення переливання крові в Одесі.",
     href: "https://www.donor.ua/centers/1447",
-  },
-];
-
-const uaResources = [
-  {
-    city: "Odesa",
-    title: "FAQ Odessa",
-    text: "Підготовка, пояснення і часті питання від Одеської станції переливання крові.",
-    href: "https://ospk.od.ua/faq/",
   },
 ];
 
@@ -406,6 +403,7 @@ function App() {
               <p className="eyebrow">${t.badge}</p>
               <h1>${t.title}</h1>
               <p className="lead">${t.subtitle}</p>
+              <p className="manifesto">${t.manifesto}</p>
 
               <div className="hero-actions">
                 <a className="button button-primary" href="#centers">
@@ -416,7 +414,10 @@ function App() {
                 </a>
               </div>
 
-              <p className="pledge">${t.pledge}</p>
+              <div className="pledge-card">
+                <span className="pledge-label">${t.pledgeLabel}</span>
+                <p className="pledge">${t.pledge}</p>
+              </div>
             </div>
 
             <aside className="impact-card">
@@ -437,9 +438,21 @@ function App() {
         </header>
 
         <main className="content">
+          <section className="panel resource-panel">
+            <p className="section-kicker">Why This Matters</p>
+            <h2>${t.resourceTitle}</h2>
+            <p>${t.resourceIntro}</p>
+            <figure className="infographic-card infographic-card-wide">
+              <img
+                src="https://nogiftsjustblood.carrd.co/assets/images/image01.jpg?v=2c44f59f"
+                alt="Blood donation infographic"
+              />
+            </figure>
+          </section>
+
           <section className="panel panel-story">
             <div>
-              <p className="section-kicker">Why</p>
+              <p className="section-kicker">Why No Gifts</p>
               <h2>${t.whyTitle}</h2>
             </div>
             <p>${t.whyText}</p>
@@ -485,46 +498,26 @@ function App() {
             </div>
           </section>
 
-          <section className="panel resource-panel">
-            <p className="section-kicker">Resources</p>
-            <h2>${t.resourceTitle}</h2>
-            <p>${t.resourceIntro}</p>
-            <div className="resource-grid">
-              ${locale === "uk"
-                ? html`
-                    <div className="resource-links">
-                      ${uaResources.map(
-                        (resource) => html`
-                          <a
-                            key=${resource.title}
-                            className="center-link"
-                            href=${resource.href}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <span className="center-meta">${resource.city}</span>
-                            <strong>${resource.title}</strong>
-                            <small>${resource.text}</small>
-                            <span className="center-arrow" aria-hidden="true">↗</span>
-                          </a>
-                        `,
-                      )}
-                    </div>
-                  `
-                : html`<div className="resource-links resource-links-empty"></div>`}
-
-              <figure className="infographic-card">
-                <img
-                  src="https://nogiftsjustblood.carrd.co/assets/images/image01.jpg?v=2c44f59f"
-                  alt="Blood donation infographic"
-                />
-              </figure>
-            </div>
-          </section>
-
           <section className="panel faq-panel" id="faq">
             <p className="section-kicker">Answers</p>
             <h2>${t.faqTitle}</h2>
+            ${locale === "uk"
+              ? html`
+                  <a
+                    className="faq-link-card"
+                    href="https://ospk.od.ua/faq/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="center-meta">Odesa</span>
+                    <strong>FAQ Odessa</strong>
+                    <small>
+                      Підготовка, пояснення і часті питання від Одеської станції переливання крові.
+                    </small>
+                    <span className="center-arrow" aria-hidden="true">↗</span>
+                  </a>
+                `
+              : null}
             <div className="faq-list">
               ${t.faq.map(
                 ([question, answer]) => html`

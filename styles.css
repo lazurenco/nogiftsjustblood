@@ -50,6 +50,8 @@ button {
 .page-shell {
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .page-shell::before {
@@ -61,7 +63,7 @@ button {
     radial-gradient(circle at 82% 18%, rgba(236, 172, 118, 0.09), transparent 26%),
     radial-gradient(circle at 55% 78%, rgba(180, 36, 47, 0.05), transparent 30%);
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.72;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
@@ -71,7 +73,7 @@ button {
   height: 32rem;
   border-radius: 999px;
   filter: blur(24px);
-  opacity: 0.58;
+  opacity: 0.42;
   pointer-events: none;
 }
 
@@ -97,22 +99,7 @@ button {
 }
 
 .motion-safe::before {
-  animation: backgroundFloat 24s ease-in-out infinite alternate;
-  will-change: transform, opacity;
-}
-
-.motion-safe .ambient-left {
-  animation: ambientDriftLeft 22s ease-in-out infinite alternate;
-  will-change: transform, opacity;
-}
-
-.motion-safe .ambient-right {
-  animation: ambientDriftRight 26s ease-in-out infinite alternate;
-  will-change: transform, opacity;
-}
-
-.motion-safe .ambient-center {
-  animation: ambientPulse 18s ease-in-out infinite alternate;
+  animation: backgroundFloat 30s ease-in-out infinite alternate;
   will-change: transform, opacity;
 }
 
@@ -131,38 +118,43 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
+  flex-wrap: nowrap;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  font-size: 0.88rem;
-  letter-spacing: 0.08em;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 800;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .brand-mark {
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   border-radius: 999px;
   color: #fff7f1;
   background: linear-gradient(135deg, var(--accent) 0%, #de5d4d 100%);
   box-shadow: 0 12px 30px rgba(180, 36, 47, 0.28);
+  flex: 0 0 auto;
 }
 
 .lang-switch {
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 0.8rem 1rem;
+  padding: 0.72rem 0.9rem;
   background: rgba(255, 251, 246, 0.8);
   backdrop-filter: blur(10px);
   transition: transform 180ms ease, border-color 180ms ease;
+  flex: 0 0 auto;
 }
 
 .lang-switch:hover {
@@ -185,7 +177,10 @@ button {
   background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero-copy {
@@ -231,6 +226,7 @@ h3 {
 }
 
 .lead,
+.manifesto,
 .panel p,
 .faq-item p,
 .step-card p {
@@ -243,6 +239,14 @@ h3 {
   max-width: 38rem;
   margin: 0.9rem 0 0;
   font-size: clamp(0.98rem, 1.35vw, 1.06rem);
+}
+
+.manifesto {
+  max-width: 36rem;
+  margin: 0.85rem 0 0;
+  font-size: clamp(1.02rem, 1.55vw, 1.16rem);
+  font-weight: 600;
+  color: #6f5c56;
 }
 
 .hero-actions {
@@ -279,8 +283,27 @@ h3 {
 }
 
 .pledge {
-  margin: 0.6rem 0 0;
-  font-weight: 500;
+  margin: 0.25rem 0 0;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.pledge-card {
+  margin-top: 0.9rem;
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 246, 235, 0.96), rgba(255, 251, 246, 0.82));
+  border: 1px solid rgba(180, 36, 47, 0.12);
+  box-shadow: 0 12px 28px rgba(71, 26, 20, 0.08);
+}
+
+.pledge-label {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .impact-card {
@@ -427,23 +450,6 @@ h3 {
   margin-top: 1.35rem;
 }
 
-.resource-grid {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
-  gap: 1rem;
-  align-items: stretch;
-  margin-top: 1.35rem;
-}
-
-.resource-links {
-  display: grid;
-  gap: 1rem;
-}
-
-.resource-links-empty {
-  display: none;
-}
-
 .infographic-card {
   margin: 0;
   padding: 0.85rem;
@@ -457,6 +463,28 @@ h3 {
   width: 100%;
   height: auto;
   border-radius: 18px;
+}
+
+.infographic-card-wide {
+  margin-top: 1.2rem;
+}
+
+.faq-link-card {
+  display: grid;
+  gap: 0.35rem;
+  position: relative;
+  margin-top: 0.9rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 250, 243, 0.94);
+  border: 1px solid rgba(64, 31, 23, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.faq-link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(180, 36, 47, 0.24);
+  background: rgba(255, 246, 235, 1);
 }
 
 .faq-item {
@@ -494,45 +522,12 @@ h3 {
 
 @keyframes backgroundFloat {
   0% {
-    transform: translate3d(-1%, 0%, 0) scale(1);
-    opacity: 0.88;
+    transform: translate3d(-0.6%, 0%, 0) scale(1);
+    opacity: 0.64;
   }
   100% {
-    transform: translate3d(1.5%, -1.5%, 0) scale(1.04);
-    opacity: 1;
-  }
-}
-
-@keyframes ambientDriftLeft {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.54;
-  }
-  100% {
-    transform: translate3d(2rem, 1rem, 0) scale(1.06);
-    opacity: 0.7;
-  }
-}
-
-@keyframes ambientDriftRight {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate3d(-2rem, -1rem, 0) scale(1.08);
-    opacity: 0.66;
-  }
-}
-
-@keyframes ambientPulse {
-  0% {
-    transform: translate3d(0, 0, 0) scale(0.94);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate3d(0.5rem, -0.75rem, 0) scale(1.08);
-    opacity: 0.5;
+    transform: translate3d(0.8%, -0.8%, 0) scale(1.015);
+    opacity: 0.78;
   }
 }
 
@@ -541,8 +536,7 @@ h3 {
   .panel-story,
   .steps-grid,
   .link-grid,
-  .faq-list,
-  .resource-grid {
+  .faq-list {
     grid-template-columns: 1fr;
   }
 
@@ -556,7 +550,7 @@ h3 {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 420px) {
   .hero,
   .content,
   .footer-note {
@@ -570,7 +564,7 @@ h3 {
   }
 
   .brand {
-    font-size: 0.82rem;
+    font-size: 0.74rem;
   }
 
   .hero-copy,
