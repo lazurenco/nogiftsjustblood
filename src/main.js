@@ -9,12 +9,12 @@ const content = {
     lang: "EN",
     altLang: "UK",
     badge: "A birthday wish",
-    title: "Donate blood for my birthday 🎂🩸",
+    title: "My birthday wish: donate blood 🎂🩸",
     subtitle:
       "No gifts — just something that actually saves lives ❤️",
     reassurance: "Takes ~40 minutes. You’ll be fine 🙂",
     manifesto:
-      "I do this, and it is easier than it seems. If you are unsure, I can go with you.",
+      "I’m okay. This is just the birthday thing I care about this year — and I can go with you if you’re unsure.",
     primaryCta: "Find a place near you 🌍",
     cityCtas: [
       { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
@@ -79,12 +79,12 @@ const content = {
     lang: "UK",
     altLang: "EN",
     badge: "Моє бажання на день народження",
-    title: "Здай кров на мій день народження 🎂🩸",
+    title: "Моє бажання на день народження: здати кров 🎂🩸",
     subtitle:
       "Без подарунків — просто зроби щось, що справді рятує життя ❤️",
     reassurance: "Це займе ~40 хвилин. З тобою все буде добре 🙂",
     manifesto:
-      "Я це роблю, і це простіше, ніж здається. Якщо не впевнено, я можу піти з тобою.",
+      "Зі мною все добре. Просто цього року мені важливо саме це — і я можу піти з тобою, якщо ти вагаєшся.",
     primaryCta: "Find a place near you 🌍",
     cityCtas: [
       { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
