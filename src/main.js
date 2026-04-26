@@ -78,8 +78,9 @@ const content = {
   uk: {
     lang: "UK",
     altLang: "EN",
-    badge: "На день народження 🎂🩸",
-    title: "Моє побажання: здати кров",
+    badge: "Моє побажання",
+    title:
+      "Якщо бажаєш мене привітати з\u00a0днем\u00a0народження, найкращий подарунок - здати кров! 🎂🩸",
     subtitle:
       "Без подарунків — просто зроби щось, що справді рятує життя ❤️",
     reassurance:
@@ -394,7 +395,9 @@ function App() {
           <section className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">${t.badge}</p>
-              <h1>${t.title}</h1>
+              <h1 className=${locale === "uk" ? "hero-title hero-title-uk" : "hero-title"}>
+                ${t.title}
+              </h1>
               <p className="lead">${t.subtitle}</p>
               <p className="reassurance">${t.reassurance}</p>
               <p className="manifesto">${t.manifesto}</p>
