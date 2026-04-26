@@ -8,25 +8,32 @@ const content = {
   en: {
     lang: "EN",
     altLang: "UK",
-    badge: "A birthday request",
-    title: "Donate blood for my birthday.",
+    badge: "A birthday wish",
+    title: "Donate blood for my birthday 🎂🩸",
     subtitle:
-      "No gifts. Just something that actually saves lives.",
+      "No gifts — just something that actually saves lives ❤️",
+    reassurance: "Takes ~40 minutes. You’ll be fine 🙂",
     manifesto:
-      "It takes around 40 minutes. You will be fine. And it matters more than another present ever could.",
-    primaryCta: "Find a donation center",
-    secondaryCta: "Read the FAQ",
-    pledge: "If you're nervous, I'll go with you.",
-    pledgeLabel: "You do not have to go alone",
+      "I do this, and it is easier than it seems. If you are unsure, I can go with you.",
+    primaryCta: "Find a place near you 🌍",
+    cityCtas: [
+      { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
+      { label: "Kyiv donation point 🩸", href: "https://www.donor.ua/centers/1" },
+    ],
+    supportPrompt: "Not sure?",
+    supportTitle: "I’ll go with you 🤝",
+    supportText: "Text me — we’ll do it together",
+    supportCta: "Text me — we’ll go together 🤝",
+    supportHref: "sms:",
+    impactLabel: "Impact",
     stats: [
-      { value: "30–40 min", label: "door to done" },
-      { value: "1 visit", label: "can help multiple people" },
+      { value: "~40 min", label: "with checkup" },
+      { value: "1 donation", label: "can help up to 3 people" },
       { value: "0 gifts", label: "needed this year" },
     ],
-    whyTitle: "Why this instead of presents?",
-    whyText:
-      "I do not really need more things. Blood donations are concrete, immediate, and useful. That makes them a much better birthday gesture.",
+    resourceKicker: "Why This Matters",
     stepsTitle: "How it works",
+    stepsKicker: "Process",
     steps: [
       {
         title: "Eat light",
@@ -47,43 +54,56 @@ const content = {
     ],
     centersTitle: "Where to go",
     centersIntro:
-      "We’ll try to detect your country and city, then suggest the most relevant local search links.",
+      "Pick the easiest option:",
     resourceTitle: "Why it matters",
     resourceIntro:
-      "A compact visual from the original campaign page: one donation helps several people, and countries with more donors save more lives.",
+      "One quiet, practical visit can help more than one person.",
+    infographicCaption: "1 donation can help up to 3 people",
+    infographicNote: "Donors per 1000 people",
     faqTitle: "FAQ",
+    faqKicker: "Answers",
     faq: [
-      ["Is it scary?", "Usually not. It is mostly a routine process and staff guide you through it."],
-      ["Does it hurt?", "Only the quick needle moment."],
-      ["Can I eat first?", "Yes. Light food and water are a good idea."],
-      ["Coffee?", "Better after the donation."],
-      ["Can’t donate?", "Share the page or bring someone who can."],
+      ["Is it scary?", "Not really. Usually easier than it sounds 🙂"],
+      ["How long does it take?", "Donation itself is usually ~10–15 minutes. Around ~40 minutes total with checkup."],
+      ["Can I eat before?", "Yes — light food is usually better. Avoid very fatty meals."],
+      ["Coffee?", "Better after."],
+      ["Workout?", "Light activity later is usually fine. Skip intense training the same day."],
+      ["Can’t donate?", "Share the page, encourage someone, or come with a friend ❤️"],
     ],
+    faqDisclaimer:
+      "Rules differ by country and donation center. Always follow local medical guidance.",
     footer:
-      "If you donate, send me a selfie. I will be proud of you.",
+      "If you donate — send me a selfie 📸\nI’ll be proud of you ❤️",
   },
   uk: {
     lang: "UK",
     altLang: "EN",
-    badge: "Моє прохання на день народження",
-    title: "Здай кров на мій день народження.",
+    badge: "Моє бажання на день народження",
+    title: "Здай кров на мій день народження 🎂🩸",
     subtitle:
-      "Без подарунків. Просто зроби щось, що реально рятує життя.",
+      "Без подарунків — просто зроби щось, що справді рятує життя ❤️",
+    reassurance: "Це займе ~40 хвилин. З тобою все буде добре 🙂",
     manifesto:
-      "Це займає приблизно 40 хвилин. З тобою все буде добре. А користі від цього набагато більше, ніж від ще однієї речі.",
-    primaryCta: "Знайти центр донації",
-    secondaryCta: "Переглянути FAQ",
-    pledge: "Якщо хвилюєшся, я піду з тобою.",
-    pledgeLabel: "Я буду поруч",
+      "Я це роблю, і це простіше, ніж здається. Якщо не впевнено, я можу піти з тобою.",
+    primaryCta: "Find a place near you 🌍",
+    cityCtas: [
+      { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
+      { label: "Kyiv donation point 🩸", href: "https://www.donor.ua/centers/1" },
+    ],
+    supportPrompt: "Не впевнено?",
+    supportTitle: "Я піду з тобою 🤝",
+    supportText: "Напиши мені — зробимо це разом",
+    supportCta: "Напиши мені — підемо разом 🤝",
+    supportHref: "sms:",
+    impactLabel: "Вплив",
     stats: [
-      { value: "30–40 хв", label: "від входу до завершення" },
-      { value: "1 візит", label: "може допомогти кільком людям" },
+      { value: "~40 хв", label: "разом із перевіркою" },
+      { value: "1 донація", label: "може допомогти до 3 людям" },
       { value: "0 подарунків", label: "мені справді не потрібно" },
     ],
-    whyTitle: "Чому краще так, ніж подарунок?",
-    whyText:
-      "Мені не потрібні зайві речі. А донорство крові це конкретна, швидка і справді корисна допомога. Для дня народження це набагато цінніше.",
+    resourceKicker: "Чому це важливо",
     stepsTitle: "Як це відбувається",
+    stepsKicker: "Процес",
     steps: [
       {
         title: "Легко поїж",
@@ -104,53 +124,41 @@ const content = {
     ],
     centersTitle: "Куди звернутися",
     centersIntro:
-      "Для української версії показуємо перевірені центри з DonorUA для Києва та Одеси.",
-    resourceTitle: "Чому це важливо зараз",
+      "Обери найпростіший варіант:",
+    resourceTitle: "Чому це важливо",
     resourceIntro:
-      "Під час війни низьке донорство це не просто пасивність. Це соромна нестача людяності, коли кров критично потрібна постійно.",
+      "Один спокійний, практичний візит може допомогти не одній людині.",
+    infographicCaption: "1 донація може допомогти до 3 людям",
+    infographicNote: "Донорів на 1000 людей",
     faqTitle: "FAQ",
+    faqKicker: "Відповіді",
     faq: [
-      ["Це страшно?", "Зазвичай ні. Це стандартна процедура, і персонал усе пояснює."],
-      ["Боляче?", "Лише короткий момент з голкою."],
-      ["Можна поїсти перед цим?", "Так. Легка їжа і вода навіть бажані."],
-      ["Каву?", "Краще вже після донації."],
-      ["Не можеш здати?", "Поділись сторінкою або приведи когось, хто може."],
+      ["Це страшно?", "Не дуже. Зазвичай простіше, ніж здається 🙂"],
+      ["Скільки це займає?", "Сама донація зазвичай триває ~10–15 хвилин. Разом із перевіркою — близько ~40 хвилин."],
+      ["Можна їсти перед цим?", "Так — легка їжа зазвичай краще. Уникай дуже жирної їжі."],
+      ["Каву?", "Краще після."],
+      ["Тренування?", "Легка активність пізніше зазвичай ок. Інтенсивне тренування в той самий день краще пропустити."],
+      ["Не можеш здати?", "Поділись сторінкою, підтримай когось або прийди з другом ❤️"],
     ],
+    faqDisclaimer:
+      "Правила відрізняються залежно від країни та центру донації. Завжди дотримуйся місцевих медичних рекомендацій.",
     footer:
-      "Якщо здаси кров, надішли мені селфі. Я дуже пишатимусь тобою.",
+      "Якщо здаси кров — надішли мені селфі 📸\nЯ пишатимусь тобою ❤️",
   },
 };
 
 const uaCenters = [
   {
-    city: "Kyiv",
-    title: "Київський міський центр крові",
-    text: "Основний міський центр у Києві на DonorUA.",
-    href: "https://www.donor.ua/centers/1",
-  },
-  {
-    city: "Kyiv",
-    title: "ОХМАТДИТ",
-    text: "Донорський центр НДСЛ ОХМАТДИТ.",
-    href: "https://www.donor.ua/centers/3",
-  },
-  {
-    city: "Kyiv",
-    title: "ФЕОФАНІЯ",
-    text: "Центр трансфузіології клінічної лікарні ФЕОФАНІЯ.",
-    href: "https://www.donor.ua/centers/96",
-  },
-  {
     city: "Odesa",
-    title: "Одеська обласна станція переливання крові",
-    text: "Базовий центр для Одеси на DonorUA.",
+    title: "Odesa donation point 🩸",
+    text: "Direct local option.",
     href: "https://www.donor.ua/centers/45",
   },
   {
-    city: "Odesa",
-    title: "Одеська обласна дитяча клінічна лікарня",
-    text: "Відділення переливання крові в Одесі.",
-    href: "https://www.donor.ua/centers/1447",
+    city: "Kyiv",
+    title: "Kyiv donation point 🩸",
+    text: "Direct local option.",
+    href: "https://www.donor.ua/centers/1",
   },
 ];
 
@@ -237,12 +245,12 @@ function getInternationalCenters(location, locale) {
           : "Fallback open map search.",
     },
     {
-      label: locale === "uk" ? "Веб-пошук по місту" : "Web search by city",
+      label: locale === "uk" ? "Find a place near you 🌍" : "Find a place near you 🌍",
       href: `https://www.google.com/search?q=${encodeURIComponent(query)}`,
       detail:
         locale === "uk"
-          ? "Корисно, якщо офіційний сервіс у країні неочевидний."
-          : "Useful when the country does not have one obvious national service.",
+          ? "Location-based search when the local service is not obvious."
+          : "Location-based search when the local service is not obvious.",
     },
   );
 
@@ -323,33 +331,22 @@ function App() {
 
     detectLocation();
 
-    if (!navigator.geolocation) return undefined;
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        if (cancelled) return;
-
-        setLocation((current) => ({
-          ...current,
-          coords: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          },
-          source: "geolocation",
-        }));
-      },
-      () => {},
-      { enableHighAccuracy: false, timeout: 5000, maximumAge: 600000 },
-    );
-
     return () => {
       cancelled = true;
     };
   }, [isAutoLocale, regionNames]);
 
+  const locationLabel = [location.city, location.countryName].filter(Boolean).join(", ");
+  const nearbySearchHref = buildGoogleMapsUrl(buildSearchQuery(locationLabel), location.coords);
+  const nearbySearchCard = {
+    city: "Near you",
+    title: t.primaryCta,
+    text: "Location-based search.",
+    href: nearbySearchHref,
+  };
   const centerCards =
     locale === "uk"
-      ? uaCenters
+      ? [nearbySearchCard, ...uaCenters]
       : getInternationalCenters(location, locale).map((item) => ({
           city: location.city || location.countryName || "Nearby",
           title: item.label,
@@ -357,10 +354,9 @@ function App() {
           href: item.href,
         }));
 
-  const locationLabel = [location.city, location.countryName].filter(Boolean).join(", ");
   const centerKicker =
     locale === "uk"
-      ? "Kyiv / Odesa"
+      ? "Near you / Odesa / Kyiv"
       : locationLabel
         ? `Detected: ${locationLabel}`
         : "International";
@@ -399,26 +395,46 @@ function App() {
               <p className="eyebrow">${t.badge}</p>
               <h1>${t.title}</h1>
               <p className="lead">${t.subtitle}</p>
+              <p className="reassurance">${t.reassurance}</p>
               <p className="manifesto">${t.manifesto}</p>
 
               <div className="hero-actions">
-                <a className="button button-primary" href="#centers">
+                <a
+                  className="button button-primary"
+                  href=${nearbySearchHref}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   ${t.primaryCta}
                 </a>
-                <a className="button button-secondary" href="#faq">
-                  ${t.secondaryCta}
-                </a>
+                ${t.cityCtas.map(
+                  (cta) => html`
+                    <a
+                      className="button button-secondary"
+                      href=${cta.href}
+                      key=${cta.label}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      ${cta.label}
+                    </a>
+                  `,
+                )}
               </div>
 
-              <div className="pledge-card">
-                <span className="pledge-label">${t.pledgeLabel}</span>
-                <p className="pledge">${t.pledge}</p>
+              <div className="pledge-card support-card">
+                <span className="pledge-label">${t.supportPrompt}</span>
+                <strong className="support-heading">${t.supportTitle}</strong>
+                <p className="pledge">${t.supportText}</p>
+                <a className="button button-primary button-support" href=${t.supportHref}>
+                  ${t.supportCta}
+                </a>
               </div>
             </div>
 
             <aside className="impact-card">
               <div className="pulse" />
-              <p className="impact-label">Impact</p>
+              <p className="impact-label">${t.impactLabel}</p>
               <ul className="stat-list">
                 ${t.stats.map(
                   (item) => html`
@@ -435,7 +451,7 @@ function App() {
 
         <main className="content">
           <section className="panel resource-panel">
-            <p className="section-kicker">Why This Matters</p>
+            <p className="section-kicker">${t.resourceKicker}</p>
             <h2>${t.resourceTitle}</h2>
             <p>${t.resourceIntro}</p>
             <figure className="infographic-card infographic-card-wide">
@@ -443,19 +459,15 @@ function App() {
                 src="https://nogiftsjustblood.carrd.co/assets/images/image01.jpg?v=2c44f59f"
                 alt="Blood donation infographic"
               />
+              <figcaption className="infographic-caption">
+                <strong>${t.infographicCaption}</strong>
+                <span>${t.infographicNote}</span>
+              </figcaption>
             </figure>
           </section>
 
-          <section className="panel panel-story">
-            <div>
-              <p className="section-kicker">Why No Gifts</p>
-              <h2>${t.whyTitle}</h2>
-            </div>
-            <p>${t.whyText}</p>
-          </section>
-
           <section className="panel">
-            <p className="section-kicker">Process</p>
+            <p className="section-kicker">${t.stepsKicker}</p>
             <h2>${t.stepsTitle}</h2>
             <div className="steps-grid">
               ${t.steps.map(
@@ -495,7 +507,7 @@ function App() {
           </section>
 
           <section className="panel faq-panel" id="faq">
-            <p className="section-kicker">Answers</p>
+            <p className="section-kicker">${t.faqKicker}</p>
             <h2>${t.faqTitle}</h2>
             ${locale === "uk"
               ? html`
@@ -524,10 +536,11 @@ function App() {
                 `,
               )}
             </div>
+            <p className="faq-disclaimer">${t.faqDisclaimer}</p>
           </section>
         </main>
 
-        <footer className="footer-note">
+        <footer className="footer-note" id="final-note">
           <p>${t.footer}</p>
         </footer>
       </div>

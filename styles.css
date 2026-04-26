@@ -256,6 +256,19 @@ h3 {
   font-size: clamp(0.98rem, 1.35vw, 1.06rem);
 }
 
+.reassurance {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.9rem 0 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 239, 0.92);
+  border: 1px solid rgba(180, 36, 47, 0.16);
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .manifesto {
   max-width: 36rem;
   margin: 0.85rem 0 0;
@@ -304,12 +317,12 @@ h3 {
 }
 
 .pledge-card {
-  margin-top: 0.9rem;
-  padding: 0.95rem 1rem;
-  border-radius: 20px;
+  margin-top: 1rem;
+  padding: 1.2rem;
+  border-radius: 22px;
   background: linear-gradient(135deg, rgba(255, 246, 235, 0.96), rgba(255, 251, 246, 0.82));
-  border: 1px solid rgba(180, 36, 47, 0.12);
-  box-shadow: 0 12px 28px rgba(71, 26, 20, 0.08);
+  border: 1px solid rgba(180, 36, 47, 0.2);
+  box-shadow: 0 18px 42px rgba(71, 26, 20, 0.1);
 }
 
 .pledge-label {
@@ -319,6 +332,18 @@ h3 {
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.support-heading {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  line-height: 1;
+}
+
+.button-support {
+  margin-top: 0.9rem;
 }
 
 .impact-card {
@@ -480,6 +505,23 @@ h3 {
   border-radius: 18px;
 }
 
+.infographic-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 0.35rem 0.1rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.infographic-caption strong {
+  color: var(--text);
+}
+
+.infographic-caption span {
+  font-size: 0.9rem;
+}
+
 .infographic-card-wide {
   margin-top: 1.2rem;
 }
@@ -506,12 +548,24 @@ h3 {
   padding: 1.3rem;
 }
 
+.faq-disclaimer {
+  margin: 1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
 .footer-note {
   margin-bottom: 1.75rem;
   border-radius: var(--radius-xl);
   padding: 1.35rem 1.5rem;
   text-align: center;
   font-weight: 500;
+}
+
+.footer-note p {
+  margin: 0;
+  white-space: pre-line;
 }
 
 @keyframes rise {
@@ -632,9 +686,14 @@ h3 {
   }
 
   .lead,
+  .reassurance,
   .panel p,
   .faq-item p,
   .step-card p {
     font-size: 1rem;
+  }
+
+  .infographic-caption {
+    display: grid;
   }
 }
