@@ -83,13 +83,14 @@ const content = {
       "Якщо бажаєш мене привітати з днем народження, найкращий подарунок - здати кров! 🎂🩸",
     subtitle:
       "Без подарунків — просто зроби щось, що справді рятує життя ❤️",
-    reassurance: "Це займе ~40 хвилин. З тобою все буде добре 🙂",
+    reassurance:
+      "Це займе ~40 хвилин. З тобою все буде добре 🙂 До того ж отримаєш безкоштовний аналіз крові.",
     manifesto:
       "Зі мною все добре. Просто цього року мені важливо саме це — і я можу піти з тобою, якщо ти вагаєшся.",
-    primaryCta: "Find a place near you 🌍",
+    primaryCta: "Знайти поруч 🌍",
     cityCtas: [
-      { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
-      { label: "Kyiv donation point 🩸", href: "https://www.donor.ua/centers/1" },
+      { label: "Одеська обласна станція переливання крові 🩸", href: "https://www.donor.ua/centers/45" },
+      { label: "Київський міський центр крові 🩸", href: "https://www.donor.ua/centers/1" },
     ],
     supportPrompt: "Не впевнено?",
     supportTitle: "Я піду з тобою 🤝",
@@ -150,15 +151,15 @@ const content = {
 
 const uaCenters = [
   {
-    city: "Odesa",
-    title: "Odesa donation point 🩸",
-    text: "Direct local option.",
+    city: "Одеса",
+    title: "Одеська обласна станція переливання крові 🩸",
+    text: "Локальний пункт донації.",
     href: "https://www.donor.ua/centers/45",
   },
   {
-    city: "Kyiv",
-    title: "Kyiv donation point 🩸",
-    text: "Direct local option.",
+    city: "Київ",
+    title: "Київський міський центр крові 🩸",
+    text: "Локальний пункт донації.",
     href: "https://www.donor.ua/centers/1",
   },
 ];
@@ -340,9 +341,9 @@ function App() {
   const locationLabel = [location.city, location.countryName].filter(Boolean).join(", ");
   const nearbySearchHref = buildGoogleMapsUrl(buildSearchQuery(locationLabel), location.coords);
   const nearbySearchCard = {
-    city: "Near you",
+    city: locale === "uk" ? "Поруч" : "Near you",
     title: t.primaryCta,
-    text: "Location-based search.",
+    text: locale === "uk" ? "Пошук за твоєю локацією." : "Location-based search.",
     href: nearbySearchHref,
   };
   const centerCards =
@@ -357,7 +358,7 @@ function App() {
 
   const centerKicker =
     locale === "uk"
-      ? "Near you / Odesa / Kyiv"
+      ? "Поруч / Одеса / Київ"
       : locationLabel
         ? `Detected: ${locationLabel}`
         : "International";
