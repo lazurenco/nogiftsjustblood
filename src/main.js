@@ -17,8 +17,16 @@ const content = {
       "I’m okay. This is just the birthday thing I care about this year — and I can go with you if you’re unsure.",
     primaryCta: "Find a place near you 🌍",
     cityCtas: [
-      { label: "Odesa donation point 🩸", href: "https://www.donor.ua/centers/45" },
-      { label: "Kyiv donation point 🩸", href: "https://www.donor.ua/centers/1" },
+      {
+        label: "Odesa donation point 🩸",
+        href: "https://www.donor.ua/centers/45",
+        analyticsButton: "Odesa",
+      },
+      {
+        label: "Kyiv donation point 🩸",
+        href: "https://www.donor.ua/centers/1",
+        analyticsButton: "Kyiv",
+      },
     ],
     supportPrompt: "Not sure?",
     supportTitle: "I’ll go with you 🤝",
@@ -89,8 +97,16 @@ const content = {
       "Зі мною все добре. Просто цього року мені важливо саме це — і я можу піти з тобою, якщо ти вагаєшся.",
     primaryCta: "Знайти поруч 🌍",
     cityCtas: [
-      { label: "Одеська обласна станція переливання крові 🩸", href: "https://www.donor.ua/centers/45" },
-      { label: "Київський міський центр крові 🩸", href: "https://www.donor.ua/centers/1" },
+      {
+        label: "Одеська обласна станція переливання крові 🩸",
+        href: "https://www.donor.ua/centers/45",
+        analyticsButton: "Odesa",
+      },
+      {
+        label: "Київський міський центр крові 🩸",
+        href: "https://www.donor.ua/centers/1",
+        analyticsButton: "Kyiv",
+      },
     ],
     supportPrompt: "Не впевнено?",
     supportTitle: "Я піду з тобою 🤝",
@@ -155,12 +171,14 @@ const uaCenters = [
     title: "Одеська обласна станція переливання крові 🩸",
     text: "Локальний пункт донації.",
     href: "https://www.donor.ua/centers/45",
+    analyticsButton: "Odesa",
   },
   {
     city: "Київ",
     title: "Київський міський центр крові 🩸",
     text: "Локальний пункт донації.",
     href: "https://www.donor.ua/centers/1",
+    analyticsButton: "Kyiv",
   },
 ];
 
@@ -212,6 +230,16 @@ function buildOpenStreetMapUrl(query, coords) {
   return `https://www.openstreetmap.org/search?query=${encodeURIComponent(query)}`;
 }
 
+function trackEvent(eventName, props = {}) {
+  if (typeof window !== "undefined" && typeof window.plausible === "function") {
+    window.plausible(eventName, { props });
+  }
+}
+
+function trackCtaClick(button) {
+  trackEvent("CTA Click", { button });
+}
+
 function getInternationalCenters(location, locale) {
   const placeParts = [location.city, location.subdivision, location.countryName].filter(Boolean);
   const place = placeParts.join(", ");
@@ -249,6 +277,7 @@ function getInternationalCenters(location, locale) {
     {
       label: locale === "uk" ? "Find a place near you 🌍" : "Find a place near you 🌍",
       href: `https://www.google.com/search?q=${encodeURIComponent(query)}`,
+      analyticsButton: "Find near you",
       detail:
         locale === "uk"
           ? "Location-based search when the local service is not obvious."
@@ -345,6 +374,7 @@ function App() {
     title: t.primaryCta,
     text: locale === "uk" ? "Пошук за твоєю локацією." : "Location-based search.",
     href: nearbySearchHref,
+    analyticsButton: "Find near you",
   };
   const centerCards =
     locale === "uk"
@@ -354,6 +384,7 @@ function App() {
           title: item.label,
           text: item.detail,
           href: item.href,
+          analyticsButton: item.analyticsButton,
         }));
 
   const centerKicker =
@@ -408,6 +439,7 @@ function App() {
                   href=${nearbySearchHref}
                   target="_blank"
                   rel="noreferrer"
+                  onClick=${() => trackCtaClick("Find near you")}
                 >
                   ${t.primaryCta}
                 </a>
@@ -419,6 +451,7 @@ function App() {
                       key=${cta.label}
                       target="_blank"
                       rel="noreferrer"
+                      onClick=${() => trackCtaClick(cta.analyticsButton)}
                     >
                       ${cta.label}
                     </a>
@@ -430,7 +463,11 @@ function App() {
                 <span className="pledge-label">${t.supportPrompt}</span>
                 <strong className="support-heading">${t.supportTitle}</strong>
                 <p className="pledge">${t.supportText}</p>
-                <a className="button button-primary button-support" href=${t.supportHref}>
+                <a
+                  className="button button-primary button-support"
+                  href=${t.supportHref}
+                  onClick=${() => trackCtaClick("Text me")}
+                >
                   ${t.supportCta}
                 </a>
               </div>
@@ -499,6 +536,9 @@ function App() {
                     href=${center.href}
                     target="_blank"
                     rel="noreferrer"
+                    onClick=${center.analyticsButton
+                      ? () => trackCtaClick(center.analyticsButton)
+                      : undefined}
                   >
                     <span className="center-meta">${center.city}</span>
                     <strong>${center.title}</strong>
